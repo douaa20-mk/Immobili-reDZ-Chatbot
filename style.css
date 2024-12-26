@@ -1,0 +1,293 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Ysabeau SC', sans-serif;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 19%;
+  height: 100%;
+  background: #036789;
+  color: rgb(173, 153, 53);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+}
+
+.sidebar .logo img {
+  width: 120px;
+  margin-bottom: 50px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  display: none;
+  background: #036789;
+  padding: 0px;
+  border-radius: 5px;
+}
+
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown ul li {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+/* Show dropdown on click */
+.active {
+  display: block;
+}
+
+/* Diaporama Styles */
+.diaporama {
+  margin-left: 20%;
+  width: 80%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.diaporama .slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  animation: slide 12s infinite;
+  opacity: 0;
+}
+
+.diaporama .slides img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.diaporama .slides img:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.diaporama .slides img:nth-child(3) {
+  animation-delay: 8s;
+}
+
+@keyframes slide {
+  0%, 100% { opacity: 0; }
+  33%, 66% { opacity: 1; }
+}
+
+.diaporama .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.diaporama .overlay h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.diaporama .overlay p {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+/* Opportunities Section */
+.opportunities {
+  display: flex;
+  padding: 20px;
+  margin-left: 20%;
+  background: #f9f9f9;
+}
+
+.left-panel, .right-panel {
+  width: 50%;
+  padding: 10px;
+}
+
+/* Recent Rentals Section */
+.left-panel img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.rental-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Adjust iframe inside the right-panel */
+.right-panel iframe {
+  width: 100%;
+  height: 300px; /* Set the same height as rental list for consistency */
+  border: none;
+  max-width: 100%; /* Ensures iframe doesn't overflow horizontally */
+  max-height: 100%; /* Ensures iframe doesn't overflow vertically */
+}
+
+/* Chatbot Section */
+.right-panel .chatbot {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-header {
+  background: #036789;
+  color: rgb(173, 153, 53);
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  text-align: center;
+}
+
+.chatbot-container {
+  display: none;
+  height: calc(100% - 50px); /* Ensure container takes up the remaining height after the header */
+}
+
+.chatbot-container.active {
+  display: block;
+}
+
+.right-panel .chatbot iframe {
+  width: 100%;
+  height: calc(100% - 60px); /* Adjust iframe height to fill the rest of the space */
+  border: none;
+}
+
+/* Button to close the chatbot */
+.close-chat {
+  background: transparent;
+  border: none;
+  color: #ff0000;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Footer and About Us */
+.about, .contact {
+  margin-left: 20%;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.contact p {
+  margin: 5px 0;
+}
+
+/* Responsive for Mobile Devices */
+@media (max-width: 768px) {
+  /* Sidebar becomes top navigation */
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+
+  .sidebar ul li {
+    font-size: 0.9em; /* Reduce text size for mobile */
+    margin: 10px;
+  }
+
+  .diaporama {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .opportunities {
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .left-panel, .right-panel {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .left-panel img {
+    width: 100%;
+    height: auto;
+  }
+
+  .right-panel iframe {
+    height: 250px; /* Adjust iframe size for smaller screens */
+  }
+
+  /* Adjust Diaporama text */
+  .diaporama .overlay h1 {
+    font-size: 2em;
+  }
+
+  .diaporama .overlay p {
+    font-size: 1.2em;
+  }
+
+  .diaporama .slides img {
+    animation: slide 12s infinite; /* Keep the animation but reduce it for mobile */
+  }
+
+  /* Chatbot Styles */
+  .right-panel .chatbot {
+    width: 100%;
+    height: 300px; /* Adjust height for small screens */
+  }
+
+  .chatbot-header {
+    font-size: 1.2em; /* Make header text smaller */
+  }
+
+  .contact p {
+    font-size: 0.9em;
+  }
+}
+
+/* Additional mobile tweaks for very small screens */
+@media (max-width: 480px) {
+  .diaporama .overlay h1 {
+    font-size: 1.8em;
+  }
+
+  .diaporama .overlay p {
+    font-size: 1em;
+  }
+
+  .right-panel iframe {
+    height: 200px; /* Adjust iframe for smaller mobile screens */
+  }
+
+  .chatbot-header {
+    font-size: 1em; /* Make chatbot header text smaller */
+  }
+}
